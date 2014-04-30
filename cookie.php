@@ -293,12 +293,12 @@ if ($url)
 	}
 ?>
 <p>
-	Testing the URL: <code><a href="<?php echo htmlspecialchars($url); ?>"><?php echo htmlspecialchars($url); ?></a></code>
+	Testing the URL: <code><a href="<?php echo htmlspecialchars($url); ?>"><?php echo htmlspecialchars($url, ENT_QUOTES, 'UTF-8'); ?></a></code>
 <?php
 	if ($url_before != $url)
 	{
 ?>
-	normalised from: <code><?php echo htmlspecialchars($url_before); ?></code>
+	normalised from: <code><?php echo htmlspecialchars($url_before, ENT_QUOTES, 'UTF-8'); ?></code>
 <?php
 	}
 ?>
@@ -315,9 +315,9 @@ if ($url)
 	$url = parse_url($url);
 ?>
 	<dt>Board domain</dt>
-	<dd><?php echo htmlspecialchars($url['host']); ?></dd>
+	<dd><?php echo htmlspecialchars($url['host'], ENT_QUOTES, 'UTF-8'); ?></dd>
 	<dt>Board path</dt>
-	<dd><?php echo htmlspecialchars($url['path']); ?></dd>
+	<dd><?php echo htmlspecialchars($url['path'], ENT_QUOTES, 'UTF-8'); ?></dd>
 	<dt>Board secure</dt>
 	<dd><?php echo ($url['scheme'] == 'https') ? 'Yes' : 'No'; ?></dd>
 <?php
@@ -391,7 +391,7 @@ if ($url)
 			$php_version = substr($header, 18);
 ?>
 	<dt>PHP Version</dt>
-	<dd class="<?php echo result_to_css_class(rate_php_version($php_version)); ?>"><?php echo htmlspecialchars($php_version); ?></dd>
+	<dd class="<?php echo result_to_css_class(rate_php_version($php_version)); ?>"><?php echo htmlspecialchars($php_version, ENT_QUOTES, 'UTF-8'); ?></dd>
 <?php
 		}
 		else if (strpos($header, 'Server: ') === 0)
@@ -399,7 +399,7 @@ if ($url)
 			$httpd_version = substr($header, 8);
 ?>
 	<dt>HTTPd Version</dt>
-	<dd><?php echo htmlspecialchars($httpd_version); ?></dd>
+	<dd><?php echo htmlspecialchars($httpd_version, ENT_QUOTES, 'UTF-8'); ?></dd>
 <?php
 		}
 	}
@@ -422,7 +422,7 @@ if ($url)
 		foreach ($prefixes as $prefix => $weight)
 		{
 ?>
-	<dd><pre class="<?php echo ($weight == 3) ? 'good' : 'bad'; ?>"><?php echo htmlspecialchars($prefix); ?> (<?php echo $weight; ?>)</pre></dd>
+	<dd><pre class="<?php echo ($weight == 3) ? 'good' : 'bad'; ?>"><?php echo htmlspecialchars($prefix, ENT_QUOTES, 'UTF-8'); ?> (<?php echo $weight; ?>)</pre></dd>
 <?php
 		}
 
@@ -435,7 +435,7 @@ if ($url)
 	</dl>
 	<p>
 		Your board is sending multiple cookies that appear to be phpBB3 cookies, assuming
-		<q><var><?php echo htmlspecialchars($prefix); ?></var></q> is the correct one.
+		<q><var><?php echo htmlspecialchars($prefix, ENT_QUOTES, 'UTF-8'); ?></var></q> is the correct one.
 	</p>
 	<dl>
 <?php
@@ -458,13 +458,13 @@ if ($url)
 		$path = $cookies[0]->settableForPath($url['path']);
 ?>
 	<dt>Cookie name</dt>
-	<dd class=""><code><?php echo htmlspecialchars($prefix); ?></code></dd>
+	<dd class=""><code><?php echo htmlspecialchars($prefix, ENT_QUOTES, 'UTF-8'); ?></code></dd>
 
 	<dt>Cookie domain</dt>
-	<dd class="<?php echo result_to_css_class($domain); ?>"><code><?php echo ($cookies[0]->domain ? htmlspecialchars($cookies[0]->domain) : '(unset)'); ?></code></dd>
+	<dd class="<?php echo result_to_css_class($domain); ?>"><code><?php echo ($cookies[0]->domain ? htmlspecialchars($cookies[0]->domain, ENT_QUOTES, 'UTF-8') : '(unset)'); ?></code></dd>
 
 	<dt>Cookie path</dt>
-	<dd class="<?php echo result_to_css_class($path); ?>"><code><?php echo ($cookies[0]->path ? htmlspecialchars($cookies[0]->path) : '(unset)'); ?></code></dd>
+	<dd class="<?php echo result_to_css_class($path); ?>"><code><?php echo ($cookies[0]->path ? htmlspecialchars($cookies[0]->path, ENT_QUOTES, 'UTF-8') : '(unset)'); ?></code></dd>
 
 	<dt>Cookie secure</dt>
 	<dd class="<?php echo ($cookie->secure && $url['scheme'] == 'http' ? 'bad' : (!$cookie->secure && $url['scheme'] == 'https' ? 'notice' : 'good')); ?>"><?php echo ($cookie->secure) ? 'Yes' : 'No'; ?></dd>
@@ -492,21 +492,21 @@ if ($url)
 		foreach ($response['headers'] as $header)
 		{
 ?>
-	<li><code><?php echo htmlspecialchars($header); ?></code></li>
+	<li><code><?php echo htmlspecialchars($header, ENT_QUOTES, 'UTF-8'); ?></code></li>
 <?php
 		}
 ?>
 </ul>
 <h4>Body</h4>
-<pre><?php echo htmlspecialchars($response['body']); ?></pre>
+<pre><?php echo htmlspecialchars($response['body'], ENT_QUOTES, 'UTF-8'); ?></pre>
 <h3>Statistics</h3>
 <dl>
 <?php
 		foreach ($info as $name => $value)
 		{
 ?>
-		<dt><?php echo htmlspecialchars($name); ?></dt>
-		<dd><code><?php echo htmlspecialchars($value); ?></code></dd>
+		<dt><?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?></dt>
+		<dd><code><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></code></dd>
 <?php
 		}
 ?>

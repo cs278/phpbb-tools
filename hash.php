@@ -231,8 +231,8 @@ if (isset($_REQUEST['submit']) && isset($_REQUEST['password']))
 {
 ?>
 <h2>Result</h2>
-<p>phpbb_hash(): <code><?php echo phpbb_hash(htmlspecialchars($_REQUEST['password'])); ?></code></p>
-<p>md5(): <code><?php echo md5(htmlspecialchars($_REQUEST['password'])); ?></code></p>
+<p>phpbb_hash(): <code><?php echo phpbb_hash(htmlspecialchars($_REQUEST['password'], ENT_QUOTES, 'UTF-8')); ?></code></p>
+<p>md5(): <code><?php echo md5(htmlspecialchars($_REQUEST['password'], ENT_QUOTES, 'UTF-8')); ?></code></p>
 <?php
 }
 ?>
