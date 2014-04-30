@@ -436,7 +436,7 @@ if ($url)
 	</dl>
 	<p>
 		Your board is sending multiple cookies that appear to be phpBB3 cookies, assuming
-		<q><var><?php echo $prefix; ?></var></q> is the correct one.
+		<q><var><?php echo htmlspecialchars($prefix); ?></var></q> is the correct one.
 	</p>
 	<dl>
 <?php
