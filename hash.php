@@ -236,7 +236,7 @@ if (isset($_REQUEST['submit']) && isset($_REQUEST['password']))
 <?php
 }
 ?>
-<form method="post" action="./<?php echo basename(__FILE__); ?>">
+<form method="post">
 <fieldset>
 	<legend>Password</legend>
 	<dl>
