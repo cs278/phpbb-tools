@@ -465,7 +465,7 @@ if ($url)
 	<dd class="<?php echo result_to_css_class($domain); ?>"><code><?php echo ($cookies[0]->domain ? htmlspecialchars($cookies[0]->domain) : '(unset)'); ?></code></dd>
 
 	<dt>Cookie path</dt>
-	<dd class="<?php echo result_to_css_class($path); ?>"><code><?php echo ($cookies[0]->path ? htmlspecialchars($cookies[0]->path) : '(unset)'); ?><code></dd>
+	<dd class="<?php echo result_to_css_class($path); ?>"><code><?php echo ($cookies[0]->path ? htmlspecialchars($cookies[0]->path) : '(unset)'); ?></code></dd>
 
 	<dt>Cookie secure</dt>
 	<dd class="<?php echo ($cookie->secure && $url['scheme'] == 'http' ? 'bad' : (!$cookie->secure && $url['scheme'] == 'https' ? 'notice' : 'good')); ?>"><?php echo ($cookie->secure) ? 'Yes' : 'No'; ?></dd>
