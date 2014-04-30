@@ -48,7 +48,7 @@ class Cookie
 	{
 		$this->name		= (string) $name;
 		$this->value	= (string) $value;
-		$this->expire	= (int) $expire;
+		$this->expire	= (int) $expires;
 		$this->path		= str_replace('//', '/', (string) $path);
 		$this->domain	= (string) $domain;
 		$this->secure	= (bool) $secure;
