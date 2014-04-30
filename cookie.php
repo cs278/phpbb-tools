@@ -527,7 +527,5 @@ else
 <?php
 }
 ?>
-<hr>
-<p><code>$Id: cookie.php 137 2010-03-13 22:25:21Z chris $</code></p>
 </body>
 </html>
