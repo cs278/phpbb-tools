@@ -23,14 +23,13 @@ function phpbb_version($url)
 {
 	if ($changelog = @file_get_contents($url . 'docs/INSTALL.html'))
 	{
-		preg_match('#phpBB-3\.0\.[0-9]+_to_3\.0\.([0-9]+)\.zip/tar\.gz#m', $changelog, $m);
+		if (preg_match('#phpBB-3\.0\.[0-9]+_to_3\.0\.([0-9]+)\.zip/tar\.gz#m', $changelog, $m))
+		{
+			return '3.0.' . $m[1];
+		}
+	}
 
-		return '3.0.' . $m[1];
-	}
-	else
-	{
-		return 'Unable to detect';
-	}
+	return 'Unable to detect';
 }
 
 
